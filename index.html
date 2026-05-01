@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <p class="tag">Interactive To-Do List</p>
+      <h1>Manage your daily tasks with ease</h1>
+      <p class="subtitle">
+        Add, edit, delete, and mark tasks as completed. Your tasks are saved in the browser.
+      </p>
+
+      <div class="stats">
+        <div class="stat-box">
+          <span>Total</span>
+          <strong id="totalTasks">0</strong>
+        </div>
+        <div class="stat-box">
+          <span>Pending</span>
+          <strong id="pendingTasks">0</strong>
+        </div>
+        <div class="stat-box">
+          <span>Completed</span>
+          <strong id="completedTasks">0</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid-layout">
+      <section class="card">
+        <h2>Add a Task</h2>
+
+        <form id="taskForm">
+          <label for="taskInput">Task Name</label>
+          <input id="taskInput" type="text" placeholder="Enter your task">
+
+          <label for="categoryInput">Category</label>
+          <input id="categoryInput" type="text" placeholder="Study, Work, Personal">
+
+          <label for="priorityInput">Priority</label>
+          <select id="priorityInput">
+            <option value="High">High</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="Low">Low</option>
+          </select>
+
+          <div class="button-row">
+            <button id="submitBtn" type="submit" class="primary-btn">Add Task</button>
+            <button id="cancelEditBtn" type="button" class="secondary-btn hidden">Cancel Edit</button>
+          </div>
+
+          <p id="message" class="message"></p>
+          <p id="storageInfo" class="storage-info"></p>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="task-header">
+          <div>
+            <h2>Your Tasks</h2>
+            <p class="small-text">Tasks appear below after you add them.</p>
+          </div>
+          <button id="clearCompletedBtn" type="button" class="secondary-btn">Clear Completed</button>
+        </div>
+
+        <div class="filters">
+          <div>
+            <label for="searchInput">Search</label>
+            <input id="searchInput" type="text" placeholder="Search tasks">
+          </div>
+
+          <div>
+            <label for="statusFilter">Filter</label>
+            <select id="statusFilter">
+              <option value="all" selected>All</option>
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <h3>No tasks yet</h3>
+          <p>Add a task from the form and it will appear here.</p>
+        </div>
+
+        <ul id="taskList" class="task-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
